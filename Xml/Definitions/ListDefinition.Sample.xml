@@ -1,0 +1,93 @@
+﻿<?xml version="1.0"?>
+<!-- The `listDefinition` element is the container for a single list definition -->
+<list:listDefinition xmlns:list="http://www.sdltridion.com/2009/GUI/extensions/List">
+	<!-- The `selectornamespaces` element is the container for selection prefix-namespaceURI associations -->
+	<list:selectornamespaces>
+		<!-- Defines a single prefix-namespaceURI association -->
+		<list:namespace prefix="tcm" uri="http://www.tridion.com/ContentManager/5.0"/>
+	</list:selectornamespaces>
+	<!-- The `rows` element is the container for row definitions -->
+	<list:rows>
+		<!-- The `itemSelector` element defines the XPath query executed against the data to retrieve the rows for a list -->
+		<list:itemSelector>/*/*</list:itemSelector>
+		<!-- The `titleSelector` element defines the sub XPath query (appended to itemSelector) executed against the data to retrieve the title for a row -->
+		<list:titleSelector>@Title</list:titleSelector>
+		<!-- The `titleColumnId` element defines the sub XPath query (appended to itemSelector) executed against the data to retrieve the title`s ID for a row -->
+		<list:titleColumnId>@Title</list:titleColumnId>
+		<!-- The `idSelector` element defines the sub XPath query (appended to the itemSelector) executed against the data to retrieve the ID of a row -->
+		<list:idSelector>@ID</list:idSelector>
+		<!-- The `modifiedDateSelector` element defines the sub XPath query (appended to the itemSelector) executed against the data to retrieve the last modification data of a row -->
+		<list:modifiedDateSelector>@Modified</list:modifiedDateSelector>
+		<!-- The `stateSelector` element defines status of List Item. -->
+		<list:stateSelector>@Icon</list:stateSelector>
+		<!-- The `ghostSelected` element defines the sub XPath query (appended to the itemSelected) executed against the data to retrieve the `IsNew` of a row -->
+		<list:ghostSelector>@IsNew="true"</list:ghostSelector>
+		<!-- The `isThumbnailPreviewSelector` element defines if item has thumbnail for preview -->
+		<list:isThumbnailPreviewSelector>@MIMEType</list:isThumbnailPreviewSelector>
+		<!-- The `thumbnailIconSelector` element defines the sub XPath query (appended to the itemSelector) executed against the data to retrieve the thumbnail icon name -->
+		<list:thumbnailIconSelector>@Icon</list:thumbnailIconSelector>
+		<!-- Defines the string shown if the list is empty -->
+		<list:emptyListMessage>{Resources: Tridion.Web.UI.Strings, ThereAreNoItemsInThisView}</list:emptyListMessage>
+		<!-- The `newItems` element defines the properties for the new items created in the list -->
+		<list:newItems>
+			<!-- The `nodeName` is the new Item default node name -->
+			<list:nodeName></list:nodeName>
+			<!-- The `nodeNamespace` is the new Item default node namespace -->
+			<list:nodeNamespace></list:nodeNamespace>
+			<!-- The `nodeParent` is the new node Item parent element -->
+			<list:nodeParent></list:nodeParent>
+		</list:newItems>
+		<!-- The `defaultSortField` element defines the sort field used by default -->
+		<list:defaultSortField>@Icon</list:defaultSortField>
+	</list:rows>
+	<!-- The `columns` element is the container for column definitions -->
+	<list:columns>
+		<!-- Defines a single column in a list 
+          @id the column ID
+          @type the type of the column either literal(default, not a part of definition) or checkbox|icon|data
+          @selector the column selector
+          @alternateSelector the selector used if main selection did not return a value
+          @width defines a column width
+          @dictionary defined a dictionari associated with the value
+          @title the column title
+          @translate defines a client side translators
+          @enableresizing defines if this column might be resized, default "true"
+          @enablesorting defines if sorting can be performed by this field, default "true"
+          @enablefiltering defines if filtering  can be performed by this field, default "true"
+          @columnfilter defined filtering type, might be either daterange|value|group
+          @path icon path [DEPRECATED]
+          @extension icon extension [DEPRECATED]
+		-->
+		<list:column 
+			id="IconColum" 
+			type="icon" 
+			title="" 
+			width="20" 
+			enableresizing="false" 
+			enablesorting="false" 
+			enablefiltering="false" 
+			selector="@Icon" 
+		/>
+	</list:columns>
+	<!-- The `translates` element is the container for the translation dictionaries -->
+	<list:translates>
+		<!-- Defines a translation dictionary 
+			@id the dictionary ID
+		-->
+		<list:translation id="ItemTypes">
+			<!-- Defines a single entry in the translation dictionary 
+				@original the original value from list
+				@translated the translated value
+			-->
+			<list:entry 
+				original="1" 
+				translated="{Resources: Tridion.Web.UI.Strings, Publication}"
+			/>
+		</list:translation>
+	</list:translates>
+
+	<!-- Path to Filter bar in list header 
+		@url the path to filter bar implementation
+	-->
+	<list:filterbarView url="~/Views/ListFilters/SearchListBar.aspx"/>
+</list:listDefinition>
