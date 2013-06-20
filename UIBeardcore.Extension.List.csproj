@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\System.config.sample.xml" />
+    <Content Include="Scripts\ListExtensions\Translators.js" />
     <Content Include="Web.config" />
     <Content Include="Xml\Definitions\ListDefinition.Sample.xml" />
   </ItemGroup>

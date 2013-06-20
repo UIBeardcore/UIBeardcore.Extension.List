@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0"?>
 <!-- The `listDefinition` element is the container for a single list definition -->
 <list:listDefinition xmlns:list="http://www.sdltridion.com/2009/GUI/extensions/List">
+	
 	<!-- The `selectornamespaces` element is the container for selection prefix-namespaceURI associations -->
 	<list:selectornamespaces>
 		<!-- Defines a single prefix-namespaceURI association -->
 		<list:namespace prefix="tcm" uri="http://www.tridion.com/ContentManager/5.0"/>
 	</list:selectornamespaces>
+	
 	<!-- The `rows` element is the container for row definitions -->
 	<list:rows>
 		<!-- The `itemSelector` element defines the XPath query executed against the data to retrieve the rows for a list -->
@@ -40,6 +42,7 @@
 		<!-- The `defaultSortField` element defines the sort field used by default -->
 		<list:defaultSortField>@Icon</list:defaultSortField>
 	</list:rows>
+	
 	<!-- The `columns` element is the container for column definitions -->
 	<list:columns>
 		<!-- Defines a single column in a list 
@@ -58,17 +61,10 @@
           @path icon path [DEPRECATED]
           @extension icon extension [DEPRECATED]
 		-->
-		<list:column 
-			id="IconColum" 
-			type="icon" 
-			title="" 
-			width="20" 
-			enableresizing="false" 
-			enablesorting="false" 
-			enablefiltering="false" 
-			selector="@Icon" 
-		/>
+		<list:column id="IconColum" type="icon" selector="@Icon" />
+		<list:column id="Type" type="data" selector="@Type" dictionary="ItemTypes" />
 	</list:columns>
+	
 	<!-- The `translates` element is the container for the translation dictionaries -->
 	<list:translates>
 		<!-- Defines a translation dictionary 
