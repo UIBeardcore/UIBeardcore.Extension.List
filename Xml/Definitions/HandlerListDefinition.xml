@@ -1,0 +1,34 @@
+﻿<?xml version="1.0"?>
+<list:listDefinition xmlns:list="http://www.sdltridion.com/2009/GUI/extensions/List">
+	<list:selectornamespaces>
+		<list:namespace prefix="tcm" uri="http://www.tridion.com/ContentManager/5.0"/>
+		<list:namespace prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+	</list:selectornamespaces>
+	<list:rows>
+		<list:itemSelector>/*/*</list:itemSelector>
+		<list:titleSelector>@Title</list:titleSelector>
+		<list:idSelector>@ID</list:idSelector>
+		<list:modifiedDateSelector>@Modified</list:modifiedDateSelector>
+		<list:stateSelector>@Icon</list:stateSelector>
+		<list:ghostSelector>@IsNew="true"</list:ghostSelector>
+		<list:isThumbnailPreviewSelector>@MIMEType</list:isThumbnailPreviewSelector>
+		<list:thumbnailIconSelector>@Icon</list:thumbnailIconSelector>
+		<list:emptyListMessage>{Resources: Tridion.Web.UI.Strings, ThereAreNoItemsInThisView}</list:emptyListMessage>
+	</list:rows>
+	<list:columns>
+		<list:column id="IconColum" type="icon" title="" width="20" enableresizing="false" enablesorting="false" enablefiltering="false" selector="@Icon" />
+		<list:column id="TitleColumn" type="data" title="{Resources: Tridion.Web.UI.Strings, Name}" selector="@Title" enablefiltering="true" columnfilter="group" />
+		<list:column
+			id="PercentageTitleVisualization"
+			type="data"
+			title=""
+			selector="@Title"
+			width="100"
+			enablesorting="false"
+			enablefiltering="false"
+			enableresizing="false"
+			translate="UIBeardcore.Editors.ListExtensions.Translators.BeardcoreTranslatorColor"/>
+		<list:column id="FromPub" type="data" title="{Resources: Tridion.Web.UI.Strings, FromPublication}" selector="@FromPub"  enablefiltering="true" columnfilter="value"/>
+		<list:column id="Modified" type="data" title="{Resources: Tridion.Web.UI.Strings, Modified}" selector="@Modified" translate="Tridion.Utils.Localization.TranslateDate"  enablefiltering="true" columnfilter="daterange" />
+	</list:columns>
+</list:listDefinition>

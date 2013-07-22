@@ -58,15 +58,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\System.config.sample.xml" />
+    <Content Include="Scripts\ListExtensions\ListDefinitionHandlers.js" />
     <Content Include="Scripts\ListExtensions\Translators.js" />
     <Content Include="Web.config" />
+    <Content Include="Xml\Definitions\HandlerListDefinition.xml" />
     <Content Include="Xml\Definitions\ListDefinition.Sample.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Configuration\UIBeardcore.Extension.List.Editor.config" />
+    <Content Include="Configuration\UIBeardcore.Extension.List.Editor.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
